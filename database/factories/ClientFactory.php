@@ -29,7 +29,8 @@ class ClientFactory extends Factory
             'last_name' => $this->faker->lastName($gender),
             'age' => $this->faker->numberBetween(16, 90),
             'gender' => $gender,
-            'email' => $this->faker->unique()->safeEmail
+            'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->unique()->safeEmail,
         ];
     }
 }

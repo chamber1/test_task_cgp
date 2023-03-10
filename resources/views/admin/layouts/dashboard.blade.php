@@ -25,6 +25,13 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- DataTables -->
+    <link href="{{ asset('https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js') }}"></script>
+    <script src="{{ asset('https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js') }}"></script>
+
+
+
 </head>
     <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -233,9 +240,7 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-                    @yield('content')
-                </div><!-- /.container-fluid -->
+                @yield('content')
             </section>
             <!-- /.content -->
         </div>
@@ -255,6 +260,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+    </body>
 
     <!-- jQuery -->
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -286,6 +292,4 @@
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-
-    </body>
 </html>

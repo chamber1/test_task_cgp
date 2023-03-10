@@ -28,7 +28,7 @@ class ClientRequest extends FormRequest
             'last_name' => ['required','string','min:5'],
             'age' => ['nullable'],
             'gender' => ['required','integer'],
-
+            'phone' => ['required','numeric','phone_number','digits:11'],
         ];
     }
 }

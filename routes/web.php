@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\Admin\DashboardController;
 use \App\Http\Controllers\Auth\LoginController;
+use \App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Auth::routes([
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/',[DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('clients',[ClientController::class, 'index'])->name('admin.clients.index');
+    Route::get('data',[ClientController::class, 'data'])->name('admin.clients.data');
 });
 
 Route::get('logout', [LoginController::class,'logout'])->name('logout');
