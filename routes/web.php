@@ -29,8 +29,14 @@ Auth::routes([
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/',[DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('clients',[ClientController::class, 'index'])->name('admin.clients.index');
-    Route::get('data',[ClientController::class, 'data'])->name('admin.clients.data');
+
+
+    //CLIENTS CRUD operations
+    Route::group(['prefix' => 'clients'], function () {
+        Route::get('/data',[ClientController::class, 'data'])->name('admin.clients.data');
+        Route::get('/',[ClientController::class, 'index'])->name('admin.clients.index');
+        Route::get('/{client}/edit/', [ClientController::class, 'edit'])->name('admin.client.edit');
+    });
 });
 
 Route::get('logout', [LoginController::class,'logout'])->name('logout');

@@ -29,7 +29,11 @@
     <link href="{{ asset('https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js') }}"></script>
     <script src="{{ asset('https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js') }}"></script>
-
+    <!-- DataTable buttons -->
+    <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/buttons/2.3.5/css/buttons.bootstrap4.min.css') }}">
+    <script src="{{ asset('https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('https://cdn.datatables.net/buttons/2.3.5/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="/vendor/datatables/buttons.server-side.js"></script>
 
 
 </head>

@@ -47,15 +47,12 @@ class ClientDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1);
-                    /*
+                    ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );*/
+                        Button::make('excel'),
+                        Button::make('csv'),
+
+                    );
     }
 
     /**
@@ -73,6 +70,8 @@ class ClientDataTable extends DataTable
             Column::make('gender'),
             Column::make('phone'),
             Column::make('email'),
+            Column::make('action'),
+
         ];
     }
 
