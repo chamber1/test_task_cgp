@@ -19,6 +19,18 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/',[DashboardController::class, 'index']);
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/',[DashboardController::class, 'index'])->name('admin.dashboard');
 });
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
+
+
+
