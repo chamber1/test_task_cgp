@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\DashboardController;
+use \App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/',[DashboardController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+Route::get('logout', [LoginController::class,'logout'])->name('logout');
 
 
 
