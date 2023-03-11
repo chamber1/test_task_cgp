@@ -35,8 +35,8 @@
     <!-- /.card-body -->
 
     <div class="card-footer">
-        <a href="{{ route('admin.clients.index')}}" class="btn btn-danger">Отмена</a>
-        <button class="btn btn-primary">Сохранить</button>
+        <a href="{{ route('admin.clients.index')}}" class="btn btn-danger">Cancel</a>
+        <button class="btn btn-primary">Save</button>
     </div>
 
 </div>

@@ -79,6 +79,12 @@ class ClientController extends Controller
         $client->update($request->only('first_name','last_name','age','gender','phone','email'));
     }
 
+    /**
+     * Deletes Existing Client
+     *
+     * @param Request $request
+     *
+     */
     public function delete(Request $request){
         Client::where('id',$request->client_id)->delete();
     }

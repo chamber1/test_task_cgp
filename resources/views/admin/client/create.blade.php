@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <span> Creating record </span>
+        <span> Creating client </span>
     </section>
     <div class="container-fluid">
         <div class="row">
@@ -26,9 +26,9 @@
                         first_name: $('#first_name').val(),
                         last_name: $('#last_name').val(),
                         age: $('#age').val(),
-                        gender: $( "#gender" ).val(),
-                        phone: $( "#phone" ).val(),
-                        email: $( "#email" ).val()
+                        gender: $( '#gender' ).val(),
+                        phone: $( '#phone' ).val(),
+                        email: $( '#email' ).val()
                      },
                     success: function (data) {
                      window.location.href = "{{ route('admin.clients.index') }}";

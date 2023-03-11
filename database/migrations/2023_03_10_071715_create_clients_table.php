@@ -13,14 +13,14 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('client', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->integer('age')->nullable();
+            $table->string('first_name')->length(50);
+            $table->string('last_name')->length(50);
+            $table->tinyInteger('age');
             $table->tinyInteger('gender');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('phone')->length(30);;
+            $table->string('email')->length(50);;
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('clients');
     }
 }

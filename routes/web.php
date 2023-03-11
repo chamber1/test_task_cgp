@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\LoginController;
 use \App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,16 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{client}/edit', [ClientController::class, 'edit'])->name('admin.clients.edit');
         Route::post('{client}/update', [ClientController::class, 'update'])->name('admin.clients.update');
         Route::post('delete', [ClientController::class, 'delete'])->name('admin.clients.delete');
+    });
+
+    Route::group(['prefix' => 'companies'], function () {
+        Route::get('/',[CompanyController::class, 'index'])->name('admin.companies.index');
+        Route::get('data',[CompanyController::class, 'data'])->name('admin.companies.data');
+        Route::get('create', [CompanyController::class, 'create'])->name('admin.companies.create');
+        Route::post('store', [CompanyController::class, 'store'])->name('admin.companies.store');
+        Route::get('{company}/edit', [CompanyController::class, 'edit'])->name('admin.companies.edit');
+        Route::post('{company}/update', [CompanyController::class, 'update'])->name('admin.companies.update');
+        Route::post('delete', [CompanyController::class, 'delete'])->name('admin.companies.delete');
     });
 });
 
