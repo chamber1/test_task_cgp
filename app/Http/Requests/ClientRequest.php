@@ -13,7 +13,7 @@ class ClientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,7 +28,8 @@ class ClientRequest extends FormRequest
             'last_name' => ['required','string','min:5'],
             'age' => ['nullable'],
             'gender' => ['required','integer'],
-            'phone' => ['required','numeric','phone_number','digits:11'],
+            'phone' => ['required'],
+            'email'=>['required','email','unique:clients'],
         ];
     }
 }
