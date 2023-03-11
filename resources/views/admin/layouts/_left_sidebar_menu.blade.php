@@ -7,9 +7,14 @@
         <li class="nav-item">
             <a href="{{ route('admin.clients.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-circle"></i>
-                <p>
-                    Clients
-                </p>
+                <p>Clients</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('admin.companies.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-circle"></i>
+                <p>Companies</p>
             </a>
         </li>
     </ul>

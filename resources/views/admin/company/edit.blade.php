@@ -2,36 +2,33 @@
 
 @section('content')
     <section class="content-header">
-        <span> Editing record # {{$client->id}} </span>
+        <span> Editing record # {{$company->id}} </span>
     </section>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                {{ Form::model($client, array('onsubmit' => 'return false' ,'method' => 'post','id' => 'clientForm')) }}
-                    @include('admin.client._form')
+                {{ Form::model($company, array('onsubmit' => 'return false' ,'method' => 'post','id' => 'companyForm')) }}
+                    @include('admin.company._form')
                 {{ Form::close() }}
             </div>
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#clientForm').on('submit', function (e) {
+            $('#companyForm').on('submit', function (e) {
                 e.preventDefault();
 
                 $.ajax({
                     type: 'POST',
-                    url: '{{ route('admin.clients.update',$client) }}',
+                    url: '{{ route('admin.companies.update',$company) }}',
                     data:{
                         _token: "{{ csrf_token() }}",
-                        first_name: $('#first_name').val(),
-                        last_name: $('#last_name').val(),
-                        age: $('#age').val(),
-                        gender: $( '#gender' ).val(),
-                        phone: $( '#phone' ).val(),
-                        email: $( '#email' ).val()
+                        name: $('#name').val(),
+                        phone: $('#phone').val(),
+                        email: $('#email').val()
                     },
                     success: function (data) {
-                        window.location.href = "{{ route('admin.clients.index') }}";
+                        window.location.href = "{{ route('admin.companies.index') }}";
                     },
                     error: function (response) {
                         $('.text-danger').remove();
