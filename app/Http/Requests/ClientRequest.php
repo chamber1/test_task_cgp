@@ -26,10 +26,10 @@ class ClientRequest extends FormRequest
         return [
             'first_name' => ['required','string','min:5'],
             'last_name' => ['required','string','min:5'],
-            'age' => ['nullable'],
+            'age' => ['required','integer','min:16','max:99'],
             'gender' => ['required','integer'],
-            'phone' => ['required'],
-            'email'=>['required','email','unique:clients'],
+            'phone' => ['required','numeric','digits:12'],
+            'email'=>['required','email'],
         ];
     }
 }

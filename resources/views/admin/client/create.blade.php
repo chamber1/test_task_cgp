@@ -14,7 +14,6 @@
         </div>
     </div>
     <script type="text/javascript">
-
         $(document).ready(function () {
             $('#clientForm').on('submit', function (e) {
                 e.preventDefault();
@@ -32,15 +31,10 @@
                         email: $( "#email" ).val()
                      },
                     success: function (data) {
-                        if (data.result) {
-                            $('#senderror').hide();
-                            $('#sendmessage').show();
-                        } else {
-                            $('#senderror').show();
-                            $('#sendmessage').hide();
-                        }
+                     window.location.href = "{{ route('admin.clients.index') }}";
                     },
                     error: function (response) {
+                        $('.text-danger').remove();
                         $.each(response.responseJSON.errors,function(field_name,error){
                             $(document).find('[name='+field_name+']').after('<span class="text-strong text-danger">' +error+ '</span>')
                         })

@@ -33,11 +33,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     //CLIENTS CRUD operations
     Route::group(['prefix' => 'clients'], function () {
-        Route::get('/data',[ClientController::class, 'data'])->name('admin.clients.data');
         Route::get('/',[ClientController::class, 'index'])->name('admin.clients.index');
+        Route::get('data',[ClientController::class, 'data'])->name('admin.clients.data');
         Route::get('create', [ClientController::class, 'create'])->name('admin.clients.create');
         Route::post('store', [ClientController::class, 'store'])->name('admin.clients.store');
-        Route::get('/{client}/edit/', [ClientController::class, 'edit'])->name('admin.clients.edit');
+        Route::get('{client}/edit', [ClientController::class, 'edit'])->name('admin.clients.edit');
+        Route::post('{client}/update', [ClientController::class, 'update'])->name('admin.clients.update');
     });
 });
 

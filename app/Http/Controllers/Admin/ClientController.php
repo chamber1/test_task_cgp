@@ -53,10 +53,9 @@ class ClientController extends Controller
      *
      * @param ClientRequest $request
      *
-     * @return json responce
      */
     public function store(ClientRequest $request){
-       $result = Client::create($request->only('first_name','last_name','age','gender','phone','email'));
+       Client::create($request->only('first_name','last_name','age','gender','phone','email'));
     }
 
     /**
@@ -68,5 +67,15 @@ class ClientController extends Controller
      */
     public function edit(Client $client){
         return view('admin.client.edit', compact('client'));
+    }
+
+    /**
+     * Updates Existing Client
+     *
+     * @param ClientRequest $request
+     *
+     */
+    public function update(Client $client, ClientRequest $request){
+        $client->update($request->only('first_name','last_name','age','gender','phone','email'));
     }
 }

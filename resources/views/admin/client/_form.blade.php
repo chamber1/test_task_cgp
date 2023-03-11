@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="gender">Gender</label>
-            {{ Form::select('gender', array('1' => 'Female', '2' => 'Male'),null, array('id' => 'gender','class' => 'form-control')) }}
+            {{ Form::select('gender', array('1' => 'Female', '2' => 'Male'),'2', array('id' => 'gender','class' => 'form-control')) }}
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
