@@ -34,7 +34,7 @@
     <script src="{{ asset('https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('https://cdn.datatables.net/buttons/2.3.5/js/buttons.bootstrap4.min.js') }}"></script>
     <script src="/vendor/datatables/buttons.server-side.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
     <body class="hold-transition sidebar-mini layout-fixed">

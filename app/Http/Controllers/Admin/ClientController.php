@@ -6,7 +6,7 @@ use Illuminate\Routing\Controller;
 use App\DataTables\ClientDataTable;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Http\Request;
 
 /**
  * Handles Clients Admin Panel CRUD operations
@@ -77,5 +77,9 @@ class ClientController extends Controller
      */
     public function update(Client $client, ClientRequest $request){
         $client->update($request->only('first_name','last_name','age','gender','phone','email'));
+    }
+
+    public function delete(Request $request){
+        Client::where('id',$request->client_id)->delete();
     }
 }
