@@ -3,9 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\UsersTableSeeder;
-use Database\Seeders\ClientsTableSeeder;
-use Database\Seeders\CompaniesTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(ClientsTableSeeder::class);
         $this->call(CompaniesTableSeeder::class);
+        $this->call(ClientsCompanyTableSeeder::class);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Company;
+use App\Models\ClientsCompany;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CompanyFactory extends Factory
+class ClientsCompanyFactory extends Factory
 {
 
     /**
@@ -13,7 +13,7 @@ class CompanyFactory extends Factory
      *
      * @var string
      */
-    protected $model = Company::class;
+    protected $model = ClientsCompany::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +23,8 @@ class CompanyFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->company,
-            'phone' => $this->faker->numberBetween(100000000000, 999999999999),
-            'email' => $this->faker->unique()->safeEmail,
+            'client_id' => $this->faker->numberBetween(1, 12000),
+            'company_id' => $this->faker->numberBetween(1, 12000),
         ];
     }
 }
