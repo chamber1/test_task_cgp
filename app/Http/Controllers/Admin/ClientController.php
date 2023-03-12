@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Company;
+use App\Models\ClientsCompany;
 use Illuminate\Routing\Controller;
 use App\DataTables\ClientDataTable;
 use App\Http\Requests\ClientRequest;
@@ -45,7 +47,8 @@ class ClientController extends Controller
      * @return view
      */
     public function create(){
-        return view('admin.client.create');
+        $companiesList = Company::all()->pluck('name','id');
+        return view('admin.client.create',compact('companiesList'));
     }
 
     /**
@@ -55,7 +58,15 @@ class ClientController extends Controller
      *
      */
     public function store(ClientRequest $request){
-       Client::create($request->only('first_name','last_name','age','gender','phone','email'));
+       $client = Client::create($request->only('first_name','last_name','age','gender','phone','email'));
+        if($request->companies){
+            foreach ($request->companies as $company => $company_id){
+                ClientsCompany::insert([
+                    'client_id' => $client->id,
+                    'company_id' => $company_id
+                ]);
+            }
+        }
     }
 
     /**
@@ -66,7 +77,10 @@ class ClientController extends Controller
      * @return Filled view with client Data
      */
     public function edit(Client $client){
-        return view('admin.client.edit', compact('client'));
+        $companiesList = Company::all()->pluck('name','id');
+        $clientCompanies = $client->companies->pluck('company_id');
+
+        return view('admin.client.edit', compact('client','companiesList','clientCompanies'));
     }
 
     /**
@@ -77,6 +91,15 @@ class ClientController extends Controller
      */
     public function update(Client $client, ClientRequest $request){
         $client->update($request->only('first_name','last_name','age','gender','phone','email'));
+        if($request->companies){
+            ClientsCompany::where('client_id',$client->id)->delete();
+            foreach ($request->companies as $company => $company_id){
+                ClientsCompany::insert([
+                    'client_id' => $client->id,
+                    'company_id' => $company_id
+                ]);
+            }
+        }
     }
 
     /**
@@ -87,5 +110,6 @@ class ClientController extends Controller
      */
     public function delete(Request $request){
         Client::where('id',$request->client_id)->delete();
+        ClientsCompany::where('client_id',$request->client_id)->delete();
     }
 }

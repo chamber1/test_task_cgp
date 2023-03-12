@@ -28,7 +28,8 @@
                         age: $('#age').val(),
                         gender: $( '#gender' ).val(),
                         phone: $( '#phone' ).val(),
-                        email: $( '#email' ).val()
+                        email: $( '#email' ).val(),
+                        companies: $( '#companies' ).val()
                     },
                     success: function (data) {
                         window.location.href = "{{ route('admin.clients.index') }}";

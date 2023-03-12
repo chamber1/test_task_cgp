@@ -30,6 +30,10 @@
             <label for="email">E-mail</label>
             {{ Form::text('email', null, array('id' => 'email','class' => 'form-control', 'placeholder'=>'Enter email')) }}
         </div>
+        <div class="form-group">
+            <label for="companies">Company</label>
+            {{Form::select('sports',$companiesList,$clientCompanies,array('id' => 'companies','multiple'=>'multiple','name'=>'companies[]','class' => 'form-control'))}}
+        </div>
 
     </div>
     <!-- /.card-body -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\ClientsCompany;
 use Illuminate\Routing\Controller;
 use App\DataTables\CompanyDataTable;
 use App\Http\Requests\CompanyRequest;
@@ -87,5 +88,6 @@ class CompanyController extends Controller
      */
     public function delete(Request $request){
         Company::where('id',$request->company_id)->delete();
+        ClientsCompany::where('company_id',$request->company_id)->delete();
     }
 }
