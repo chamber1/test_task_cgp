@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,14 @@ use App\Http\Controllers\Api\AuthController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
+Route::prefix('auth')->middleware('guest')->group(function () {
+    Route::post('/login', [AuthController::class,'login']);
+    Route::post('/logout', [AuthController::class,'logout']);
+    Route::post('/token', [AuthController::class,'token']);
+    Route::post('/me', [AuthController::class,'me']);
+    Route::post('/tokenid', [AuthController::class,'tokenId']);
+});
 
-Route::get('auth/login', [AuthController::class,'login']);
-Route::get('auth/logout', 'AuthController@logout');
-Route::get('auth/token', 'AuthController@token');
-Route::get('auth/me', 'AuthController@me');
-Route::get('auth/tokenid', 'AuthController@tokenId');
+Route::get('/get_companies', [CompanyController::class,'getCompanies'])->middleware('bearer.verify');
+Route::get('/get_clients', [ClientController::class,'getClients'])->middleware('bearer.verify');
+Route::get('/get_client_companies', [ClientController::class,'getClientCompanies'])->middleware('bearer.verify');
