@@ -7,7 +7,7 @@
 
     <div class="card-body">
         <div class="form-group">
-            <label for="name">First name</label>
+            <label for="name">Company name</label>
             {{ Form::text('name', null, array('id' => 'name','class' => 'form-control', 'placeholder'=>'Enter company name')) }}
         </div>
         <div class="form-group">

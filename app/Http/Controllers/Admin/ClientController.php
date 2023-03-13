@@ -48,6 +48,7 @@ class ClientController extends Controller
      */
     public function create(){
         $companiesList = Company::all()->pluck('name','id');
+
         return view('admin.client.create',compact('companiesList'));
     }
 

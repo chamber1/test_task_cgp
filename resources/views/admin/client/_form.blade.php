@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="companies">Company</label>
-            {{Form::select('sports',$companiesList,$clientCompanies,array('id' => 'companies','multiple'=>'multiple','name'=>'companies[]','class' => 'form-control'))}}
+            {{Form::select('sports',$companiesList,$clientCompanies ?? null,array('id' => 'companies','multiple'=>'multiple','name'=>'companies[]','class' => 'form-control'))}}
         </div>
 
     </div>
