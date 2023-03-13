@@ -32,7 +32,7 @@
                         companies: $( '#companies' ).val()
                      },
                     success: function (data) {
-                     window.location.href = "{{ route('admin.clients.index') }}";
+                        window.location.href = "{{ route('admin.clients.index') }}";
                     },
                     error: function (response) {
                         $('.text-danger').remove();

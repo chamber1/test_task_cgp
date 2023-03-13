@@ -9,6 +9,8 @@ class ClientsCompany extends Model
 {
     use HasFactory;
 
+    protected $table = 'client_company';
+
     public $timestamps = false;
 
     protected $fillable = [

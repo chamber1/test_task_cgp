@@ -13,10 +13,13 @@ class CreateClientsCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients_companies', function (Blueprint $table) {
+        Schema::create('client_company', function (Blueprint $table) {
             $table->id();
-            $table->integer('client_id')->length(20);
-            $table->integer('company_id')->length(20);
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('company_id');
+
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateClientsCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients_companies');
+        Schema::dropIfExists('client_company');
     }
 }

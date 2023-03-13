@@ -24,8 +24,8 @@ class ClientController extends Controller
             DB::raw('IF(clients.gender=1,\'Male\',\'Female\') as gender'),
            'clients.phone',
            'clients.email')
-           ->join('clients_companies', 'clients_companies.client_id', '=', 'clients.id')
-           ->join('companies', 'clients_companies.company_id', '=', 'companies.id')
+           ->join('client_company', 'client_company.client_id', '=', 'clients.id')
+           ->join('companies', 'client_company.company_id', '=', 'companies.id')
            ->where('companies.id',$request->company_id)
            ->paginate($request->per_page ?? 10);
 
@@ -35,8 +35,8 @@ class ClientController extends Controller
     public function getClientCompanies(Request $request){
 
         $companies = Company::select('companies.id','companies.name','companies.phone','companies.email')
-            ->join('clients_companies', 'clients_companies.company_id', '=', 'companies.id')
-            ->join('clients', 'clients_companies.client_id', '=', 'clients.id')
+            ->join('client_company', 'client_company.company_id', '=', 'companies.id')
+            ->join('clients', 'client_company.client_id', '=', 'clients.id')
             ->where('clients.id',$request->client_id)->get();
 
         return CompanyResource::collection($companies);

@@ -78,7 +78,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client){
         $companiesList = Company::all()->pluck('name','id');
-        $clientCompanies = $client->companies->pluck('company_id');
+        $clientCompanies = $client->companies->pluck('id');
 
         return view('admin.client.edit', compact('client','companiesList','clientCompanies'));
     }
