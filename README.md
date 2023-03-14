@@ -3,8 +3,8 @@ composer install<br>
 npm install
 
 php artisan migrate<br>
-php artisan db:seed
-php artisan jwt:secret
+php artisan db:seed<br>
+php artisan jwt:secret<br>
 npm run dev
 
 Admin login page<br>
