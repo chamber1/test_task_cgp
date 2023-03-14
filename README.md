@@ -4,7 +4,7 @@ npm install
 
 php artisan migrate<br>
 php artisan db:seed
-
+php artisan jwt:secret
 npm run dev
 
 Admin login page<br>
