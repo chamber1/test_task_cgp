@@ -110,7 +110,6 @@ class ClientController extends Controller
      *
      */
     public function delete(Request $request){
-        //Client::where('id',$request->client_id)->delete();
-        ClientsCompany::where('client_id',$request->client_id)->delete();
+        Client::where('id',$request->client_id)->delete();
     }
 }
