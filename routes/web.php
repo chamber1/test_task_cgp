@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\LoginController;
+use \App\Http\Controllers\Auth\GoogleLogoutController;
 use \App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
 
 Auth::routes([
     'register' => false,
     'reset' => false,
     'verify' => false,
 ]);
+
+Route::get('login/{provider}', [App\Http\Controllers\Auth\LoginController::class, 'socialLogin'])->where('provider','google');
+Route::get('login/{provider}/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleProviderCallback'])->where('provider','google');
+Route::match(['GET','POST'],'logout/{provider}', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->where('provider','google');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 

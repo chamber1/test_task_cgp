@@ -56,7 +56,7 @@
                         <a href="#" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+                        <a href="{{ Auth()->user()->google_id ? '/logout/google' : route('logout')  }}" class="nav-link">Logout</a>
                     </li>
                 </ul>
 
