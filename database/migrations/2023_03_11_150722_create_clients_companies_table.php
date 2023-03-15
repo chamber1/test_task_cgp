@@ -18,8 +18,8 @@ class CreateClientsCompaniesTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('company_id');
 
-            $table->foreign('client_id')->references('id')->on('clients');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
