@@ -18,4 +18,12 @@ API<br>
 /api/get_client_companies?client_id=2<br>
 
 
+Google Authorization<br>
+add following Parameters<br>
+GOOGLE_CLIENT_ID=<br>
+GOOGLE_CLIENT_SECRET=<br>
+GOOGLE_REDIRECT=http://localhost/login/google/callback
+
+
+
 
