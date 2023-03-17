@@ -1,11 +1,9 @@
-
-composer install<br>
-npm install
+composer install <br>
 
 php artisan migrate<br>
 php artisan db:seed<br>
+php artisan key:generate<br>
 php artisan jwt:secret<br>
-npm run dev
 
 Admin login page<br>
 /login<br>
@@ -18,12 +16,10 @@ API<br>
 /api/get_client_companies?client_id=2<br>
 
 
-Google Authorization<br>
-add following Parameters<br>
-GOOGLE_CLIENT_ID=<br>
-GOOGLE_CLIENT_SECRET=<br>
-GOOGLE_REDIRECT=http://localhost/login/google/callback
-
-
+Google Authorization <br>
+add following Parameters <br>
+GOOGLE_CLIENT_ID= <br>
+GOOGLE_CLIENT_SECRET= <br>
+GOOGLE_REDIRECT=http://localhost/login/google/callback <br>
 
 
